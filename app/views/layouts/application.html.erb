@@ -23,6 +23,13 @@
   </head>
 
   <body>
+    <%= link_to "Home", root_path %>
+
+    <% flash.each do |type, msg| %>
+      <div>
+        <p><%= msg %></p>
+      </div>
+    <% end %>
     <main class="container mx-auto mt-28 px-5 flex">
       <%= yield %>
     </main>
