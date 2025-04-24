@@ -21,7 +21,7 @@ As an **admin**, I want to:
 2. Edit a specific trader to update his/her details;
 3. View a specific trader to show his/her details;
 4. See all the traders that are registered in the app so I can track all the traders;
-5. Have a page for pending trader sing ups to easily check if a new trader has signed up;
+5. Have a page for pending trader sign ups to easily check if a new trader has signed up;
 6. Approve a trader sign up so that he/she can start adding stocks; and
 7. See all the transactions so that I can monitor the transaction flow of the app;
 
