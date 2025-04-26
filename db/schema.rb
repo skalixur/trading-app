@@ -10,9 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_04_26_015442) do
+ActiveRecord::Schema[8.0].define(version: 2025_04_26_021432) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
+
+  create_table "holdings", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "stock_name"
+    t.decimal "quantity"
+    t.decimal "average_price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_holdings_on_user_id"
+  end
+
+  create_table "transactions", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "stock_name"
+    t.decimal "quantity"
+    t.decimal "stock_price_per_share"
+    t.decimal "total_price"
+    t.string "transaction_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_transactions_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -25,4 +47,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_26_015442) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
+
+  add_foreign_key "holdings", "users"
+  add_foreign_key "transactions", "users"
 end
