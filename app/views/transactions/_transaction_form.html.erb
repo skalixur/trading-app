@@ -1,0 +1,17 @@
+
+<%= form_with model: @transaction, method: :post, local: true do |f| %>
+    <%= f.hidden_field :stock_name, value: stock_name %>
+    <%= f.hidden_field :stock_price_per_share, value: stock_price_per_share %>
+
+    <div>
+        <%= f.label :quantity %>
+        <%= f.number_field :quantity, value: 1, min: 1 %>
+    </div>
+
+    <div>
+        <%= f.label :transaction_type %>
+        <%= f.select :transaction_type, options_for_select(["Buy", "Sell"]) %>
+    </div>
+
+    <%= f.submit "Submit Transaction" %>
+<% end %>

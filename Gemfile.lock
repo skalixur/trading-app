@@ -383,6 +383,7 @@ DEPENDENCIES
   capybara
   debug
   devise (~> 4.2)
+  dotenv
   importmap-rails
   jbuilder
   kamal

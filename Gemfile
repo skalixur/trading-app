@@ -1,5 +1,6 @@
 source "https://rubygems.org"
-
+# for env vars
+gem 'dotenv', groups: [:development, :test]
 gem "devise", "~> 4.2"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 8.0.2"
