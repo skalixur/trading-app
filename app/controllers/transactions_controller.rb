@@ -12,13 +12,14 @@ class TransactionsController < ApplicationController
        puts "Current User: #{@transaction.user}"
        
 
-       if @transaction.save
+       if @transaction.user.balance > @transaction.stock_price_per_share
+            @transaction.save
             flash[:notice] = "Transaction was successfully created."
             redirect_to transaction_path(@transaction)
-       else
-            flash[:error] = "There was an error with your transaction."
+        else
+            flash[:error] = "Insufficient balance."
             redirect_to root_path
-       end
+        end
     end
 
     def show
