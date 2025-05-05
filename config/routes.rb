@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+
+  namespace :admin do
+    resources :users do
+      member do
+        patch :approve
+      end
+    end
+  end
+
   devise_for :users, controllers: { registrations: 'users/registrations' }
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   root to: "home#index"
