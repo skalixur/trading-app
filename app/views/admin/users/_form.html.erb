@@ -1,0 +1,46 @@
+<h2>Add User</h2>
+<div>
+  <%= form_for(user, url: admin_users_path(user)) do |f| %>
+    <div class="field">
+      <%= f.label :name %><br />
+      <%= f.text_field :name, autofocus: true, autocomplete: "name",class:"border-2 border-dark" %>
+      <% user.errors.full_messages_for(:name).each do |message| %>
+        <span class="text-red-700"><%= message%></span>
+      <% end %>
+    </div>
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"border-2 border-dark"%>
+      <% user.errors.full_messages_for(:email).each do |message| %>
+        <span class="text-red-700"><%= message%></span>
+      <% end %>
+    </div>
+    <div class="field">
+      <%= f.label :password %>
+      <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "new-password",class:"border-2 border-dark" %>
+      <% user.errors.full_messages_for(:password).each do |message| %>
+        <span class="text-red-700"><%= message%></span>
+      <% end %>
+    </div>
+    <div class="field">
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password",class:"border-2 border-dark" %>
+      <% user.errors.full_messages_for(:password_confirmation).each do |message| %>
+        <span class="text-red-700"><%= message%></span>
+      <% end %>
+    </div>
+    <div class="field">
+      <%= f.label :balance %><br />
+      <%= f.number_field :balance, autocomplete: "balance",class:"border-2 border-dark" %>
+      <% user.errors.full_messages_for(:password_confirmation).each do |message| %>
+        <span class="text-red-700"><%= message%></span>
+      <% end %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Create" %>
+    </div>
+  <% end %>
+</div>

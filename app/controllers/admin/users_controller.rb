@@ -3,7 +3,12 @@ module Admin
     before_action :set_user, only: [:edit, :update, :destroy]
 
     def index
-      @users = User.all
+      @users = User.where(is_admin: false).order(name: :asc)
+      if params[:filter] == "Pending"
+        @users = User.where(is_admin: false, is_approved: false).order(name: :asc)
+      elsif params[:filter] == "Approved"
+         @users = User.where(is_admin: false, is_approved: true).order(name: :asc)
+      end
     end
 
     def new
@@ -29,6 +34,12 @@ module Admin
       end
     end
 
+    def approve
+      @user = User.find(params[:id])
+      @user.update(is_approved: true)
+      redirect_to admin_users_path, notice: "User approved"
+    end
+
     def destroy
       @user.destroy
       redirect_to admin_users_path, notice: "User deleted successfully"
@@ -41,7 +52,7 @@ module Admin
     end
 
     def user_params
-      params.require(:user).permit(:email, :password, :password_confirmation, :role, :status)
+      params.require(:user).permit(:name,:email, :password, :password_confirmation, :balance)
     end
   end
 end
