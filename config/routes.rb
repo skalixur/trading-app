@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     end
   end
 
+  get "/admin/transactions" , to: "admin/users#transactions"
+
   devise_for :users, controllers: { registrations: 'users/registrations' }
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   root to: "home#index"
