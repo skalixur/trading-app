@@ -10,17 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_05_04_072135) do
+ActiveRecord::Schema[8.0].define(version: 2025_05_06_043758) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
   create_table "holdings", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "stock_name"
-    t.decimal "quantity"
-    t.decimal "average_price"
+    t.decimal "total_shares_owned"
+    t.decimal "average_buy_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "total_value"
     t.index ["user_id"], name: "index_holdings_on_user_id"
   end
 

@@ -12,13 +12,27 @@ class TransactionsController < ApplicationController
        puts "Current User: #{@transaction.user}"
        
 
-       if @transaction.save
+        if @transaction.transaction_type === "Buy"
+            if current_user.balance.to_f > @transaction.stock_price_per_share.to_f * @transaction.quantity.to_i
+                @transaction.save
+                current_user.balance -= @transaction.total_price
+                current_user.save
+                flash[:notice] = "Transaction was successfully created."
+                redirect_to transaction_path(@transaction)
+            else
+                flash[:error] = "Insufficient balance."
+                redirect_to root_path
+            end
+        elsif @transaction.transaction_type = "Sell"
+            @transaction.save
+            current_user.balance += @transaction.total_price
+            current_user.save
             flash[:notice] = "Transaction was successfully created."
             redirect_to transaction_path(@transaction)
-       else
-            flash[:error] = "There was an error with your transaction."
+        else
+            flash[:error] = "Invalid transaction."
             redirect_to root_path
-       end
+        end
     end
 
     def show
