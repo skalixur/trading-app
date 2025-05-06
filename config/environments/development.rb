@@ -45,7 +45,7 @@ config.action_mailer.smtp_settings = {
   address: 'smtp.gmail.com',
   port: 587,
   user_name: 'aviontradingapp@gmail.com',
-  password: 'ogtr suxz alxa umvx',
+  password: ENV["MAILER_APP_PASS"],
   authentication: 'plain',
   enable_starttls_auto: true
 }
