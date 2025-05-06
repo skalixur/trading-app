@@ -1,0 +1,22 @@
+<h1>Your Holdings</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Stock</th>
+            <th>Total Shares Owned</th>
+            <th>Average Buy Price</th>
+            <th>Total Value</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @holdings.each do |holding| %>
+            <tr>
+                <td><%= holding[:stock_name] %></td>
+                <td><%= holding[:total_shares_owned] %></td>
+                <td><%= holding[:average_buy_price] %></td>
+                <td><%= holding[:total_value] %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
