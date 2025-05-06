@@ -37,6 +37,7 @@ module Admin
     def approve
       @user = User.find(params[:id])
       @user.update(is_approved: true)
+      ApprovalMailer.approval_email(@user).deliver_now
       redirect_to admin_users_path, notice: "User approved"
     end
 
