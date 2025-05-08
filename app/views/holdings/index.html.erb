@@ -12,10 +12,10 @@
     <tbody>
         <% @holdings.each do |holding| %>
             <tr>
-                <td><%= holding[:stock_name] %></td>
-                <td><%= holding[:total_shares_owned] %></td>
-                <td><%= holding[:average_buy_price] %></td>
-                <td><%= holding[:total_value] %></td>
+                <td><%= holding.stock_name %></td>
+                <td><%= holding.total_shares_owned %></td>
+                <td><%= holding.average_buy_price %></td>
+                <td><%= holding.total_value %></td>
             </tr>
         <% end %>
     </tbody>
