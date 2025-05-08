@@ -33,8 +33,8 @@
                   <% if current_user.is_admin === true %>
                     <a href="/admin/users" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Users</a>
                   <% end %>
-                  <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Transactions</a>
-                  <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Portfolio</a>
+                  <a href="/transactions" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Transactions</a>
+                  <a href="/holdings" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Portfolio</a>
                   <%= link_to "Logout" ,destroy_user_session_path, data: { turbo_method: :delete, turbo_confirm: "Are you sure, you want to logout?" }, class: "rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white" %>
                   <span class="rounded-md px-3 py-2 text-sm font-medium text-gray-300"><%= current_user.email %></span>
                 <% else %>
