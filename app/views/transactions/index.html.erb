@@ -1,0 +1,26 @@
+<h1>Transaction History</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Stock</th>
+            <th>Quantity</th>
+            <th>Stock Price Per Share</th>
+            <th>Total Price</th>
+            <th>Transaction Type</th>
+            <th>Transaction Date</th>
+        </tr>
+    <tbody>
+        <% @transactions.each do |t| %>
+            <tr>
+                <td><%= t.stock_name %></td>
+                <td><%= t.quantity %></td>
+                <td><%= t.stock_price_per_share %></td>
+                <td><%= t.total_price %></td>
+                <td><%= t.transaction_type %></td>
+                <td><%= t.created_at.strftime("%Y-%m-%d") %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+
