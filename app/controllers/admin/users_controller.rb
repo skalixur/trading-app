@@ -1,6 +1,6 @@
 module Admin
   class UsersController < ApplicationController
-    before_action :set_user, only: [:edit, :update, :destroy]
+    before_action :set_user, only: [ :edit, :update, :destroy ]
 
     def index
       @users = User.where(is_admin: false).order(name: :asc)
@@ -58,7 +58,7 @@ module Admin
     end
 
     def user_params
-      params.require(:user).permit(:name,:email, :password, :password_confirmation, :balance)
+      params.require(:user).permit(:name, :email, :password, :password_confirmation, :balance)
     end
   end
 end
