@@ -14,7 +14,7 @@ RSpec.describe "Transactions", type: :request do
     )
   end
 
-  let!(:new_transaction) { 
+  let!(:new_transaction) {
     Transaction.create!(
       user: user,
       stock_name: "MSFT",
@@ -52,9 +52,8 @@ RSpec.describe "Transactions", type: :request do
       stock_price_per_share: 433,
       total_price: 866,
       transaction_type: "Buy"
-      }}
+      } }
       expect(response).to have_http_status(302)
     end
   end
 end
-
