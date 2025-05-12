@@ -51,7 +51,13 @@ class TransactionsController < ApplicationController
     end
 
     def index
-        @transactions = current_user.transactions
+        @user_stock_names = current_user.transactions.distinct.pluck(:stock_name)
+
+        if params[:symbol].present? && params[:symbol] != "All"
+            @transactions = current_user.transactions.where(stock_name: params[:symbol])
+        else
+            @transactions = current_user.transactions
+        end
     end
 
     def show
@@ -75,9 +81,9 @@ class TransactionsController < ApplicationController
         total_shares_owned = total_quantity_bought - total_quantity_sold
 
         total_spent = buys.sum { |t| t.total_price }
-        ave_buy_price = total_quantity_bought > 0 ? (total_spent / total_quantity_bought) : 0
+        ave_buy_price = total_quantity_bought > 0 ? (total_spent.to_f.round(2) / total_quantity_bought.to_f) : 0
 
-        total_value = total_shares_owned * ave_buy_price
+        total_value = total_shares_owned * ave_buy_price.to_f.round(2)
 
         holding.total_shares_owned = total_shares_owned
         holding.average_buy_price = ave_buy_price
