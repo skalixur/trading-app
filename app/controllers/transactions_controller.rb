@@ -81,7 +81,7 @@ class TransactionsController < ApplicationController
         total_shares_owned = total_quantity_bought - total_quantity_sold
 
         total_spent = buys.sum { |t| t.total_price }
-        ave_buy_price = total_quantity_bought > 0 ? (total_spent.to_f.round(2) / total_quantity_bought.to_f) : 0
+        ave_buy_price = total_shares_owned > 0 ? (total_spent.to_f / total_quantity_bought.to_f.round(2)) : 0
 
         total_value = total_shares_owned * ave_buy_price.to_f.round(2)
 
