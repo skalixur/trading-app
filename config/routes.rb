@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   namespace :admin do
     resources :users do
       member do
@@ -8,9 +7,9 @@ Rails.application.routes.draw do
     end
   end
 
-  get "/admin/transactions" , to: "admin/users#transactions"
+  get "/admin/transactions", to: "admin/users#transactions"
 
-  devise_for :users, controllers: { registrations: 'users/registrations' }
+  devise_for :users, controllers: { registrations: "users/registrations" }
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   root to: "home#index"
 

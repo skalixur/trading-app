@@ -10,7 +10,7 @@ class TransactionsController < ApplicationController
        puts "Calculated Total Price: #{@transaction.total_price}"
        puts "Transaction Type: #{@transaction.transaction_type}"
        puts "Current User: #{@transaction.user}"
-       
+
 
         if @transaction.transaction_type === "Buy"
             if current_user.is_approved == true
@@ -25,11 +25,11 @@ class TransactionsController < ApplicationController
                     flash[:error] = "Insufficient balance."
                     redirect_to root_path
                 end
-            else 
+            else
                 flash[:error] = "Your account needs to be approved before you can make transactions."
                 redirect_to root_path
             end
-        elsif @transaction.transaction_type === "Sell" 
+        elsif @transaction.transaction_type === "Sell"
             if current_user.is_approved == true
                 holding = current_user.holdings.find_by(stock_name: @transaction.stock_name)
                 if holding.nil? || holding.total_shares_owned < @transaction.quantity
@@ -51,7 +51,13 @@ class TransactionsController < ApplicationController
     end
 
     def index
-        @transactions = current_user.transactions
+        @user_stock_names = current_user.transactions.distinct.pluck(:stock_name)
+
+        if params[:symbol].present? && params[:symbol] != "All"
+            @transactions = current_user.transactions.where(stock_name: params[:symbol])
+        else
+            @transactions = current_user.transactions
+        end
     end
 
     def show
@@ -70,14 +76,14 @@ class TransactionsController < ApplicationController
         buys = transaction.user.transactions.where(stock_name: transaction.stock_name, transaction_type: "Buy")
         sells = transaction.user.transactions.where(stock_name: transaction.stock_name, transaction_type: "Sell")
 
-        total_quantity_bought = buys.sum{ |t| t.quantity.to_f }
-        total_quantity_sold = sells.sum{ |t| t.quantity.to_f }
+        total_quantity_bought = buys.sum { |t| t.quantity.to_f }
+        total_quantity_sold = sells.sum { |t| t.quantity.to_f }
         total_shares_owned = total_quantity_bought - total_quantity_sold
 
-        total_spent = buys.sum{ |t| t.total_price}
-        ave_buy_price = total_quantity_bought > 0 ? (total_spent / total_quantity_bought) : 0
+        total_spent = buys.sum { |t| t.total_price }
+        ave_buy_price = total_shares_owned > 0 ? (total_spent.to_f / total_quantity_bought.to_f.round(2)) : 0
 
-        total_value = total_shares_owned * ave_buy_price
+        total_value = total_shares_owned * ave_buy_price.to_f.round(2)
 
         holding.total_shares_owned = total_shares_owned
         holding.average_buy_price = ave_buy_price
