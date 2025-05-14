@@ -3,23 +3,23 @@
 <div class="mt-6 border-t border-gray-100">
     <dl class="divide-y divide-gray-100">
         <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-            <dt class="font-medium text-gray-900">Stock Name:</dt>
-            <dd class="mt-1 text-gray-700 sm:col-span-2 sm:mt-0"><%= @transaction.stock_name %></dd>
+            <dt class="font-medium text-gray-200">Stock Name:</dt>
+            <dd class="mt-1 text-gray-200 sm:col-span-2 sm:mt-0"><%= @transaction.stock_name %></dd>
         </div>
         <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-            <dt class="font-medium text-gray-900">Stock Price per Share:</dt>
-            <dd class="mt-1 text-gray-700 sm:col-span-2 sm:mt-0">$<%= @transaction.stock_price_per_share %></dd>
+            <dt class="font-medium text-gray-200">Stock Price per Share:</dt>
+            <dd class="mt-1 text-gray-200 sm:col-span-2 sm:mt-0">$<%= @transaction.stock_price_per_share %></dd>
         </div>
         <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-            <dt class="font-medium text-gray-900">Quantity:</dt>
-            <dd class="mt-1 text-gray-700 sm:col-span-2 sm:mt-0"><%= @transaction.quantity %></dd>
+            <dt class="font-medium text-gray-200">Quantity:</dt>
+            <dd class="mt-1 text-gray-200 sm:col-span-2 sm:mt-0"><%= @transaction.quantity %></dd>
         </div>
         <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-            <dt class="font-medium text-gray-900">Total Price:</dt>
-            <dd class="mt-1 text-gray-700 sm:col-span-2 sm:mt-0">$<%= @transaction.total_price %></dd>
+            <dt class="font-medium text-gray-200">Total Price:</dt>
+            <dd class="mt-1 text-gray-200 sm:col-span-2 sm:mt-0">$<%= @transaction.total_price %></dd>
         </div>
         <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-            <dt class="font-medium text-gray-900">Transaction Type:</dt>
+            <dt class="font-medium text-gray-200">Transaction Type:</dt>
             <dd class="mt-1 sm:col-span-2 sm:mt-0 <%= 'text-rose-500' if @transaction.transaction_type == 'Sell' %> <%= 'text-emerald-500' if @transaction.transaction_type == 'Buy' %>"><%= @transaction.transaction_type %></dd>
         </div>
     </dl>
