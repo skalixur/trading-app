@@ -8,7 +8,7 @@
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M384 160c-17.7 0-32-14.3-32-32s14.3-32 32-32l160 0c17.7 0 32 14.3 32 32l0 160c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-82.7L342.6 374.6c-12.5 12.5-32.8 12.5-45.3 0L192 269.3 54.6 406.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l160-160c12.5-12.5 32.8-12.5 45.3 0L320 306.7 466.7 160 384 160z"/>
             </svg>
         </div>
-        <%= text_field_tag :symbol, params[:symbol], placeholder: "Enter stock symbol...", class:"pl-10 p-2.5 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
+        <%= text_field_tag :symbol, params[:symbol], placeholder: "Enter stock symbol...", class:"pl-10 p-2.5 text-sm text-gray-200 border border-gray-300 rounded-lg bg-indigo-950 focus:ring-blue-500 focus:border-blue-500" %>
         <button type="submit"
         class="p-2.5 text-sm font-medium text-white rounded-lg border bg-gray-900 border-gray-200 hover:bg-gray-50 focus:ring-4 focus:outline-none dark:border-gray-700 dark:hover:bg-gray-600">
         <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
@@ -28,12 +28,12 @@
     <div class="mt-6 border-t border-gray-100">
         <dl class="divide-y divide-gray-100">
             <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                <dt class="font-medium text-gray-900">Results for</dt>
-                <dd class="mt-1 text-gray-700 sm:col-span-2 sm:mt-0"> <%= @stock_name %></dd>
+                <dt class="font-medium text-gray-200">Results for</dt>
+                <dd class="mt-1 text-gray-200 sm:col-span-2 sm:mt-0"> <%= @stock_name %></dd>
             </div>
             <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                <dt class="font-medium text-gray-900">Stock Price: </dt>
-                <dd class="mt-1 text-gray-700 sm:col-span-2 sm:mt-0">$<%= @stock_price_per_share %></dd>
+                <dt class="font-medium text-gray-200">Stock Price: </dt>
+                <dd class="mt-1 text-gray-200 sm:col-span-2 sm:mt-0">$<%= @stock_price_per_share %></dd>
             </div>
         </dl>
     </div>

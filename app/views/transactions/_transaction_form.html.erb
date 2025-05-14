@@ -5,16 +5,16 @@
      <div class="border-t border-gray-100">
         <dl class="divide-y divide-gray-100">
             <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                <dt class="font-medium text-gray-900"><%= f.label :quantity %></dt>
+                <dt class="font-medium text-gray-200"><%= f.label :quantity %></dt>
                 <dd class="mt-1 text-gray-700 sm:col-span-2 sm:mt-0"><%= f.number_field :quantity, value: 1, min: 1, 
-                    class:"bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %></dd>
+                    class:"bg-indigo-950 border border-gray-300 text-gray-200 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5" %></dd>
             </div>
             <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                <dt class="font-medium text-gray-900"><%= f.label :transaction_type %></dt>
+                <dt class="font-medium text-gray-200"><%= f.label :transaction_type %></dt>
                 <dd class="mt-1 text-gray-700 sm:col-span-2 sm:mt-0"><%= f.select :transaction_type, 
                     options_for_select(["Buy", "Sell"]),
                     {},
-                    class:"bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %></dd>
+                    class:"bg-indigo-950 border border-gray-300 text-gray-200 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-3" %></dd>
             </div>
         </dl>
     </div>
