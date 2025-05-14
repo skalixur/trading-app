@@ -18,7 +18,7 @@
     <%= javascript_importmap_tags %>
   </head>
   <body>
-    <nav class="bg-gray-800">
+    <nav class="">
       <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div class="relative flex h-16 items-center justify-between">
           <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-between">
@@ -48,7 +48,7 @@
       </div>
     </nav>
     <% flash.each do |type, msg| %>
-      <div id="toast-bottom-right" class="fixed flex items-center w-full max-w-xs p-4 space-x-4 text-gray-500 bg-white divide-x rtl:divide-x-reverse divide-gray-200 rounded-lg shadow-sm right-5 bottom-5 dark:text-gray-400 dark:divide-gray-700 dark:bg-gray-800" role="alert">
+      <div id="toast-bottom-right" class="" role="alert">
         <div class="text-sm font-normal"><%= msg %></div>
       </div>
     <% end %>
