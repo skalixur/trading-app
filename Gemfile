@@ -69,4 +69,5 @@ end
 
 group :development, :test do
   gem "rspec-rails", "~> 8.0.0"
+  gem "rails-controller-testing"
 end
