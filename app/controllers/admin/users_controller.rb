@@ -1,6 +1,6 @@
 module Admin
   class UsersController < ApplicationController
-    before_action :set_user, only: [ :edit, :update, :destroy ]
+    before_action :set_user, only: [ :edit, :update, :destroy, :show ]
 
     def index
       @users = User.where(is_admin: false).order(name: :asc)
@@ -14,6 +14,8 @@ module Admin
     def new
       @user = User.new
     end
+
+    def show;end
 
     def transactions
       @trans = Transaction.all
