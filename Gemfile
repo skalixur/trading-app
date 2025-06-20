@@ -68,6 +68,6 @@ end
 
 
 group :development, :test do
-  gem "rspec-rails", "~> 8.0.0"
+  gem "rspec-rails", "~> 8.0.1"
   gem "rails-controller-testing"
 end
